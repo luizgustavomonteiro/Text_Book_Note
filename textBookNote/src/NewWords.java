@@ -3,12 +3,12 @@ import java.util.ArrayList;
 public class NewWords {
 
     private final int word_id;
-    private String wordName;
-    private String wordMeaning;
+    private final String wordName;
+    private final String wordMeaning;
 
     // Static collection to store all words
 
-    private static ArrayList<NewWords> wordList = new ArrayList<>();
+    private static final ArrayList<NewWords> wordList = new ArrayList<>();
 
     public NewWords(int word_id, String wordName, String wordMeaning)
     {
