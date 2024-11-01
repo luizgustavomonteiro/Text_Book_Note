@@ -1,6 +1,6 @@
 package dictionary;
 
-public interface Dictionary {
+public interface DictionaryInterface {
     
     // Method to create a new word.
     void setWord(int word_id, String wordName, String wordMeaning);
