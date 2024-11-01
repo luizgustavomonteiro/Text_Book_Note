@@ -3,13 +3,18 @@ import java.util.HashMap;
 
 public class AppDictionary implements DictionaryInterface
 {
-    private HashMap<Integer, Word> words;
-
+    private final HashMap<Integer, Word> words;
+    //Post link that containt about HashMap and these attributes. 
 
     public AppDictionary()
     {
         words = new HashMap<>();
     }
+
+    /*  Void method that receives three parameters, initializes a new object using these parameters,
+    and inserts it into the 'word' map with the key (the appropriate word_id) and an object that
+    contains the required attributes.
+*/
 
     @Override
     public void setWord(int word_id, String wordName, String wordMeaning) {
