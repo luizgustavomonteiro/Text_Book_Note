@@ -1,16 +1,15 @@
 package dictionary;
-import java.util.HashMap;
+import java.util.*;
 
-public class AppDictionary implements DictionaryInterface
+public class AppDictionaryEnglish implements DictionaryInterface
 {
     private final HashMap<Integer, Word> words;
     //Post link that containt about HashMap and these attributes. 
 
-    public AppDictionary()
+    public AppDictionaryEnglish()
     {
         words = new HashMap<>();
     }
-
     /*  Void method that receives three parameters, initializes a new object using these parameters,
     and inserts it into the 'word' map with the key (the appropriate word_id) and an object that
     contains the required attributes.
