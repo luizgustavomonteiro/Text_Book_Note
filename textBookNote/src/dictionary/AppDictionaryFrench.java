@@ -3,29 +3,36 @@ import java.util.*;
 
 public class AppDictionaryFrench implements DictionaryInterface 
 {
-    ArrayList<Word> words;
-
+    ArrayList<Word> words = new ArrayList<>();
+    
     @Override
     public void setWord(int word_id, String wordName, String wordMeaning) {
+        Word newWord = new Word(word_id, wordName, wordMeaning);
+        words.add(word_id, newWord);
 
     }
 
     @Override
     public String getWordById(int word_id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getWordById'");
+        for(Word word : words)
+        {
+            if(word.getWordId()== word_id)
+            {
+                return word.getWordMeaning();
+            }
+
+        }
+        return null;
     }
 
     @Override
     public String getWordByName(String wordName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getWordByName'");
+       return wordName;
     }
 
     @Override
     public void updateWordByID(int word_id, String newMeaning) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateWordByID'");
+        
     }
 
     @Override
