@@ -27,7 +27,13 @@ public class AppDictionaryFrench implements DictionaryInterface
 
     @Override
     public String getWordByName(String wordName) {
-       return wordName;
+       for(Word word : words)
+       {
+            if(word.getWordName().equalsIgnoreCase(wordName))
+            {
+                return word.getWordMeaning();
+            }
+       }return null;
     }
 
     @Override
