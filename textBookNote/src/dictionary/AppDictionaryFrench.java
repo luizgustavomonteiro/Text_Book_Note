@@ -8,7 +8,7 @@ public class AppDictionaryFrench implements DictionaryInterface
     @Override
     public void setWord(int word_id, String wordName, String wordMeaning) {
         Word newWord = new Word(word_id, wordName, wordMeaning);
-        words.add(word_id, newWord);
+        words.add(newWord);
 
     }
 
@@ -32,37 +32,56 @@ public class AppDictionaryFrench implements DictionaryInterface
             if(word.getWordName().equalsIgnoreCase(wordName))
             {
                 return word.getWordMeaning();
-            }
-       }return null;
-    }
+            } 
 
+       }
+       return null;
+
+    }
+    
     @Override
     public void updateWordByID(int word_id, String newMeaning) {
-        
+        for(Word word : words){
+            if(word.getWordId()==word_id){
+                word.setWordMeaning(newMeaning);
+            }
+        }
     }
 
     @Override
     public void updateWordByName(String wordName, String newMeaning) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateWordByName'");
+       for(Word word : words){
+        if(word.getWordName().equalsIgnoreCase(wordName)){
+            word.setWordMeaning(newMeaning);
+        }
+       }
     }
 
     @Override
     public void listWords() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listWords'");
+        for(Word word : words){
+            System.out.println(word);
+        }
     }
 
     @Override
     public boolean deleteWordByID(int word_id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteWordByID'");
+        for(Word word : words){
+            if(word.getWordId()==word_id){
+                words.remove(word);
+            }
+        }
+        return true;
     }
 
     @Override
     public boolean deleteWordByName(String wordName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteWordByName'");
+        for(Word word : words){
+            if(word.getWordName().equalsIgnoreCase(wordName)){
+                words.remove(word);
+            }
+        }
+        return true;
     }
 
     public class Word
@@ -96,6 +115,10 @@ public class AppDictionaryFrench implements DictionaryInterface
         public void setWordMeaning(String wordMeaning)
         {
             this.wordMeaning=wordMeaning;
+        }
+
+        public String toString(){
+            return "Word ID: " + wordId + ", Name: '" + wordName + "' Meaning: '" + wordMeaning + "' ";
         }
 
 
