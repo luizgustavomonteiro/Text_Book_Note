@@ -1,50 +1,88 @@
 package notes;
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+ * Using data structure such as a Lis<Note> in AppNotes to store the notes.
+ */
 
 public class AppNotes implements NotesInterface {
+    private final List<Note> notes = new ArrayList<>();
 
     @Override
     public void setNote(int note_id, String noteTitle, String noteText, String noteDate) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Note note = new Note(note_id, noteTitle, noteText, noteDate);
+        notes.add(note);
+        System.out.println("Note added: " + note);
     }
 
     @Override
     public void getNoteById(int note_id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for(Note note : notes) {
+            if(note.getId() == note_id){
+                System.out.println(note);
+                return;
+            }
+        }
+        System.out.println("Note not found with ID: " + note_id);
     }
 
     @Override
     public void getNoteByDate(String noteDate) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for(Note note : notes){
+            if(note.getDate().equals(noteDate)){
+                System.out.println(note);
+            }
+        }
     }
 
     @Override
     public String updateNoteById(int note_id, String newNoteText) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for(Note note: notes){
+            if(note.getId() == note_id){
+                note.setText(newNoteText);
+                return "Note updated: " + note;
+            }
+        }
+        return "Note not found with ID: " + note_id;
     }
 
     @Override
     public String updateNoteByTitle(String noteTitle) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for(Note note : notes){
+            if(note.getTitle().equalsIgnoreCase((noteTitle))){
+                note.setText("Updated text");
+                return "Note updated: " + note;
+            }
+        }
+        return "Note not found with title: " + noteTitle;
     }
 
     @Override
-    public void updateNoteByDate(String noteDate, String nowNoteText) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void updateNoteByDate(String noteDate, String newNoteText) {
+        for(Note note: notes){
+            if(note.getDate().equals(noteDate)){
+                note.setText(newNoteText);
+                System.out.println("Updated note:" + note);
+            }
+        }
     }
 
     @Override
     public void listNotes() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        for(Note note : notes){
+            System.out.println(note);
+        }
     }
 
     @Override
     public boolean deleteNoteById(int note_id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return notes.removeIf(note -> note.getId() == note_id);
     }
 
     @Override
     public boolean deleteNoteByName(String noteTitle) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return notes.removeIf(note -> note.getTitle().equalsIgnoreCase(noteTitle));
     }
 
     public class Note{
