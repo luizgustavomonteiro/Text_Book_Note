@@ -46,5 +46,19 @@ public class AppNotes implements NotesInterface {
     public boolean deleteNoteByName(String noteTitle) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    public class Note{
+        private int id;
+        private String title;
+        private String text;
+        private String date;
+
+        public Note(int id, String title, String text, String date){
+            this.id = id;
+            this.title = title;
+            this.text = text;
+            this.date = date;
+        }
+    }
     
 }

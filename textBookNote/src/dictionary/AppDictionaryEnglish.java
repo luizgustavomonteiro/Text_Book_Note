@@ -130,10 +130,7 @@ public class AppDictionaryEnglish implements DictionaryInterface
         public void setWordMeaning(String wordMeaning)
         {
             this.wordMeaning=wordMeaning;
-        }
-
-
-        
+        } 
     
     }
 

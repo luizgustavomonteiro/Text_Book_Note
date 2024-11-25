@@ -117,6 +117,7 @@ public class AppDictionaryFrench implements DictionaryInterface
             this.wordMeaning=wordMeaning;
         }
 
+        @Override
         public String toString(){
             return "Word ID: " + wordId + ", Name: '" + wordName + "' Meaning: '" + wordMeaning + "' ";
         }

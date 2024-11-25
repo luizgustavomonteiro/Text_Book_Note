@@ -16,6 +16,7 @@ public interface DictionaryInterface {
     void listWords();
     // Methods to delete words by Id or name and return a true/false.
     boolean deleteWordByID(int word_id);
+    
     boolean deleteWordByName(String wordName);
     
 }
