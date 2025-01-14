@@ -7,9 +7,14 @@ public class AppDictionaryFrench implements DictionaryInterface
     
     @Override
     public void setWord(int word_id, String wordName, String wordMeaning) {
-        Word newWord = new Word(word_id, wordName, wordMeaning);
-        words.add(newWord);
-
+        for(Word word : words){
+            if (word.getWordId() == word_id || word.getWordName().equalsIgnoreCase(wordName)){
+                System.out.println("Word already exists.");
+                return;
+            }
+        }
+        words.add (new Word(word_id, wordName, wordMeaning));
+       
     }
 
     @Override
@@ -33,7 +38,6 @@ public class AppDictionaryFrench implements DictionaryInterface
             {
                 return word.getWordMeaning();
             } 
-
        }
        return null;
 
@@ -66,12 +70,14 @@ public class AppDictionaryFrench implements DictionaryInterface
 
     @Override
     public boolean deleteWordByID(int word_id) {
-        for(Word word : words){
-            if(word.getWordId()==word_id){
-                words.remove(word);
+        Iterator<Word> iterator = words.iterator();
+        while(iterator.hasNext()){
+            if(iterator.next().getWordId()== word_id){
+                iterator.remove();
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -81,7 +87,7 @@ public class AppDictionaryFrench implements DictionaryInterface
                 words.remove(word);
             }
         }
-        return true;
+        return false;
     }
 
     public class Word
