@@ -96,6 +96,7 @@ public class AppDictionaryEnglish implements DictionaryInterface
                 return true;
             }
         }
+        System.out.println("Word not found!");
         return false;
     }
 
